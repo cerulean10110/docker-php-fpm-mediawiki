@@ -11,9 +11,10 @@ RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community/ >> /etc/apk/reposi
 RUN apk update; apk upgrade
 
 # install php-fpm and extensions for mediawiki
-RUN apk add php${PHP_V}-fpm php${PHP_V}-xml php${PHP_V}-curl php${PHP_V}-intl
+RUN apk add php${PHP_V}-fpm php${PHP_V}-xml php${PHP_V}-dom php${PHP_V}-curl php${PHP_V}-intl
 RUN apk add php${PHP_V}-calendar php${PHP_V}-apcu php${PHP_V}-opcache
 RUN apk add php${PHP_V}-mysqli php${PHP_V}-pdo_mysql php${PHP_V}-redis
+RUN apk add php${PHP_V}-ctype php${PHP_V}-iconv php${PHP_V}-fileinfo
 RUN apk add php${PHP_V}-phar php${PHP_V}-mbstring
 
 #php${PHP_V}-imagick -- dont work
@@ -30,7 +31,7 @@ RUN apk add --no-cache rsvg-convert
 # directory permission
 RUN apk add --no-cache -U shadow
 RUN groupmod --gid 1001 www-data
-RUN adduser -u 1001 -D -S -G www-data www-data
+RUN adduser -u 1000 -D -S -G www-data www-data
 
 RUN rm -rf /var/cache/apk /etc/apk/cache
 

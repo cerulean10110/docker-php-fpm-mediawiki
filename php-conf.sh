@@ -13,6 +13,8 @@ echo "opcache.jit=tracing" >> $PHP_INI
 echo "opcache.jit_buffer_size=128M" >> $PHP_INI
 
 sed -i "s/listen = /listen = 0.0.0.0:9000;/g" $PHP_WWW_CONF
+sed -i "s/user = /user = www-data;/g" $PHP_WWW_CONF
+sed -i "s/group = /group = www-data;/g" $PHP_WWW_CONF
 sed -i "s/pm.max_children = /pm.max_children = 30;/g" $PHP_WWW_CONF
 sed -i "s/pm.start_servers = /pm.start_servers = 10;/g" $PHP_WWW_CONF
 sed -i "s/pm.min_spare_servers = /pm.min_spare_servers = 5;/g" $PHP_WWW_CONF
