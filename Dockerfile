@@ -1,7 +1,7 @@
 # using alpine
 FROM alpine:3.16
 
-ARG PHP_V=8
+ARG PHP_V=81
 
 # working directory
 WORKDIR /srv
