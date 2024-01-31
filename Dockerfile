@@ -1,5 +1,5 @@
 # using alpine
-FROM alpine:3.16
+FROM alpine:3.17
 
 ARG PHP_V=81
 
@@ -11,7 +11,7 @@ RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community/ >> /etc/apk/reposi
 RUN apk update; apk upgrade
 
 # install php-fpm and extensions for mediawiki
-RUN apk add php${PHP_V}-fpm php${PHP_V}-xml php${PHP_V}-curl php${PHP_V}-intl
+RUN apk add php${PHP_V}-fpm php${PHP_V}-xml php${PHP_V}-curl icu-libs php${PHP_V}-intl
 RUN apk add php${PHP_V}-calendar php${PHP_V}-apcu php${PHP_V}-opcache
 RUN apk add php${PHP_V}-mysqli php${PHP_V}-pdo_mysql php${PHP_V}-redis
 RUN apk add php${PHP_V}-phar php${PHP_V}-mbstring
