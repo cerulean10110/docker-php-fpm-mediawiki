@@ -12,7 +12,7 @@ RUN apk update; apk upgrade
 
 # install php-fpm and extensions for mediawiki
 RUN apk add php${PHP_V}-fpm php${PHP_V}-apcu php${PHP_V}-opcache
-RUN apk add php${PHP_V}-mysqli php${PHP_V}-pdo_mysql php${PHP_V}-pecl-memcached
+RUN apk add php${PHP_V}-mysqli php${PHP_V}-pdo_mysql php${PHP_V}-pecl-memcached php${PHP_V}-pecl-luasandbox
 RUN apk add php${PHP_V}-calendar php${PHP_V}-phar
 RUN apk add php${PHP_V}-xml php${PHP_V}-curl icu-libs php${PHP_V}-intl \
     php${PHP_V}-ctype php${PHP_V}-iconv php${PHP_V}-fileinfo php${PHP_V}-mbstring \
